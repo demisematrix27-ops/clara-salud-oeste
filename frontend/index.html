@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#164e43" />
+    <meta
+      name="description"
+      content="Prototipo demostrativo para comparar cobertura y copagos de consultas médicas."
+    />
+    <title>Clara · Tu cobertura, más clara</title>
+    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Clara, inicio">
+        <img src="assets/images/logo.svg" alt="" width="38" height="38" />
+        clara<span class="brand-divider"></span>
+        <span class="brand-tagline">Tu cobertura, más clara.</span>
+      </a>
+      <nav aria-label="Navegación principal">
+        <a href="#como-funciona"
+          >Cómo funciona <span aria-hidden="true">↗</span></a
+        >
+        <span class="demo-pill"><span></span> Prototipo demo</span>
+      </nav>
+    </header>
+
+    <main id="contenido">
+      <section class="intro" aria-labelledby="page-title">
+        <div class="intro-copy">
+          <p class="eyebrow">
+            <span aria-hidden="true">✳</span> MENOS INCERTIDUMBRE. MÁS
+            TRANQUILIDAD.
+          </p>
+          <h1 id="page-title">
+            Conoce tu cobertura<br />antes de <em>atenderte.</em>
+          </h1>
+          <p class="lead">
+            Entiende tu seguro, compara centros de atención y descubre cuánto
+            podrías pagar. Todo, en un solo lugar.
+          </p>
+          <div class="intro-benefits">
+            <span><span class="check">✓</span> Copagos transparentes</span>
+            <span><span class="check">✓</span> Opciones en tu red</span>
+          </div>
+        </div>
+        <aside
+          class="coverage-art"
+          aria-label="Ejemplo: el seguro cubre 80 por ciento y tú pagas 20 por ciento"
+        >
+          <div class="art-top">
+            <span class="mini-symbol" aria-hidden="true">✳</span>
+            <span>UN POCO MÁS DE CLARIDAD</span>
+            <span class="art-dots" aria-hidden="true">•••</span>
+          </div>
+          <div class="art-body">
+            <div class="coverage-ring">
+              <div>
+                <strong>80<span>%</span></strong>
+                <small>cobertura demo</small>
+              </div>
+            </div>
+            <div class="art-legend">
+              <p><i></i> Tu seguro<strong>Te acompaña</strong></p>
+              <p><i></i> Tu copago<strong>Sin sorpresas</strong></p>
+            </div>
+          </div>
+          <div class="art-bottom">
+            <span aria-hidden="true">✓</span> Decisiones informadas, desde el
+            primer paso.
+          </div>
+          <span class="art-flower" aria-hidden="true">✳</span>
+        </aside>
+      </section>
+
+      <section class="workspace" aria-label="Consulta de cobertura">
+        <ol class="steps" aria-label="Progreso de consulta">
+          <li class="active" id="step-one">
+            Cuéntanos cómo te sientes
+          </li>
+        </ol>
+
+        <div class="consultation-layout" id="initial-view">
+          <section class="form-panel" aria-labelledby="form-title">
+            <div class="section-heading">
+              <span class="section-icon" aria-hidden="true">+</span>
+              <div>
+                <h2 id="form-title">Empecemos por ti</h2>
+                <p>Completa estos datos para explorar tus opciones.</p>
+              </div>
+            </div>
+
+            <form id="coverage-form" novalidate>
+              <label for="identification">
+                Cédula o identificación
+                <span aria-hidden="true">*</span>
+              </label>
+              <input
+                id="identification"
+                name="identification"
+                type="text"
+                placeholder="Ej. 8-123-456"
+                maxlength="40"
+                autocomplete="off"
+                required
+                aria-describedby="id-help id-error"
+              />
+              <p class="field-help" id="id-help">
+                Para esta demo puedes usar una identificación ficticia.
+              </p>
+              <p class="field-error" id="id-error" hidden></p>
+
+              <div class="label-row">
+                <label for="symptoms">
+                  Describe tus síntomas
+                  <span aria-hidden="true">*</span>
+                </label>
+                <span class="optional-label">Mín. 15 caracteres</span>
+              </div>
+              <textarea
+                id="symptoms"
+                name="symptoms"
+                rows="4"
+                maxlength="1000"
+                required
+                placeholder="Ej. Me duele la rodilla al caminar desde hace unos días…"
+                aria-describedby="symptoms-help symptoms-error"
+              ></textarea>
+              <div class="field-bottom">
+                <p class="field-help" id="symptoms-help">
+                  Cuéntanos qué sientes y desde cuándo.
+                </p>
+                <span id="character-count">0 / 1000</span>
+              </div>
+              <p class="field-error" id="symptoms-error" hidden></p>
+
+              <div class="label-row">
+                <label for="plan-id">
+                  Tipo de cobertura
+                  <span aria-hidden="true">*</span>
+                </label>
+              </div>
+              <select
+                id="plan-id"
+                name="plan_id"
+                required
+                aria-describedby="plan-error"
+              >
+                <option value="">Cargando coberturas...</option>
+              </select>
+              <p class="field-error" id="plan-error" hidden></p>
+
+              <button class="primary-button" type="submit" id="submit-button">
+                Consultar cobertura <span aria-hidden="true">→</span>
+              </button>
+              <p class="privacy-note">
+                <span aria-hidden="true">♧</span> Tus datos se procesan con
+                seguridad para tu consulta.
+              </p>
+            </form>
+          </section>
+
+          <aside class="guidance-panel" id="como-funciona">
+            <p class="eyebrow">ASÍ DE SENCILLO</p>
+            <h2>Tu siguiente paso,<br />con más información.</h2>
+            <ol class="how-list">
+              <li>
+                <span>01</span>
+                <div>
+                  <h3>Cuéntanos qué sientes</h3>
+                  <p>
+                    Sugerimos una especialidad a partir de los síntomas que
+                    describes.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <h3>Explora tu cobertura</h3>
+                  <p>
+                    Consulta centros de atención y el aporte estimado de tu
+                    seguro.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span>03</span>
+                <div>
+                  <h3>Compara y decide</h3>
+                  <p>
+                    Encuentra la alternativa con el menor copago para tu
+                    consulta.
+                  </p>
+                </div>
+              </li>
+            </ol>
+            <div class="medical-note">
+              <span aria-hidden="true">ⓘ</span>
+              <p>
+                Una guía, no un diagnóstico.<br />
+                <span
+                  >La especialidad sugerida y la estimación de cobertura no
+                  sustituyen una evaluación médica.</span
+                >
+              </p>
+            </div>
+          </aside>
+        </div>
+
+        <section
+          class="loading-panel"
+          id="loading-view"
+          hidden
+          aria-labelledby="loading-title"
+        >
+          <div class="spinner" aria-hidden="true"></div>
+          <p class="eyebrow">CONECTANDO LOS PUNTOS</p>
+          <h2 id="loading-title">
+            Analizando tus síntomas y consultando tu cobertura…
+          </h2>
+          <p>Estamos preparando tus opciones de atención.</p>
+        </section>
+
+        <section
+          class="results-panel"
+          id="results-view"
+          hidden
+          aria-labelledby="results-title"
+        >
+          <div class="results-heading">
+            <div>
+              <p class="eyebrow">TU ESTIMACIÓN ESTÁ LISTA</p>
+
+              <h2 id="results-title" tabindex="-1">
+                Más claridad para elegir.
+              </h2>
+
+              <p id="results-subtitle">
+                Compara los centros de atención disponibles en tu red.
+              </p>
+            </div>
+          </div>
+
+          <dl class="patient-summary">
+            <div>
+              <dt>Especialidad sugerida</dt>
+              <dd id="suggested-specialty">-</dd>
+            </div>
+
+            <div>
+              <dt>Análisis de consulta</dt>
+              <dd id="analysis-summary">-</dd>
+            </div>
+          </dl>
+
+          <div class="comparison-heading">
+            <h3>Centros disponibles</h3>
+          </div>
+
+          <div class="hospital-grid" id="hospital-list"></div>
+          <button
+            id="new-consultation-button"
+            class="secondary-button"
+            type="button"
+          >
+            Iniciar nueva consulta
+          </button>
+        </section>
+
+        <p class="demo-disclaimer">
+          Las tarifas, coberturas y datos mostrados tienen carácter informativo
+          y están sujetos a confirmación con cada centro.
+        </p>
+      </section>
+
+      <p
+        id="status-message"
+        class="sr-only"
+        role="status"
+        aria-live="polite"
+      ></p>
+    </main>
+
+    <footer>
+      <span class="footer-brand"
+        >clara <span>Salud y seguros, en un lenguaje más simple.</span></span
+      >
+      <span
+        >Salud Oeste <span aria-hidden="true">/</span> Reto 03 · Demo
+        frontend</span
+      >
+    </footer>
+
+    <dialog id="details-dialog" aria-labelledby="details-title">
+      <div class="dialog-top">
+        <p class="eyebrow">DETALLE DE TU ESTIMACIÓN</p>
+        <button
+          id="close-dialog"
+          class="close-button"
+          aria-label="Cerrar detalles"
+          type="button"
+        >
+          ×
+        </button>
+      </div>
+      <h2 id="details-title"></h2>
+      <p id="details-location"></p>
+      <dl id="details-breakdown" class="details-breakdown"></dl>
+      <p class="dialog-note">
+        El copago estimado se calcula a partir de la tarifa registrada para el
+        plan seleccionado. Confirma la disponibilidad de citas y cobertura
+        directa con el centro antes de tu visita.
+      </p>
+      <button class="primary-button" id="done-dialog" type="button">
+        Entendido
+      </button>
+    </dialog>
+  </body>
+</html>

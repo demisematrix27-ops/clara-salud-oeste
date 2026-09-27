@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Downloads/hackiathon-reto3 v1.0/hackiathon-reto3"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "RetoHackathon"
+	}
+}
