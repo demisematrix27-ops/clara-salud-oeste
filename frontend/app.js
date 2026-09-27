@@ -5,7 +5,7 @@
   Durante el desarrollo, FastAPI debe estar ejecutándose en:
   http://127.0.0.1:8000
 */
-const API_URL = "URL_DE_TU_BACKEND_EN_RENDER";
+const API_URL = "https://clara-salud-oeste.onrender.com/";
 
 
 // Elementos del HTML
